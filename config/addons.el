@@ -80,7 +80,7 @@
 ;; Undo tree
 ;; ==============================
 
-(add-to-list 'load-path "~/.emacs.d/elisp/undo-tree")
+(add-to-list 'load-path "~/.emacs.d/elisp/undo-tree/undo-tree-0.6.3")
 (require 'undo-tree)
 (global-undo-tree-mode 1)
 
@@ -120,15 +120,6 @@
 (define-key iron-keys-mode-map (kbd "M-h") 'helm-mini)
 
 ;; ==============================
-;; Zencoding mode
-;; ==============================
-
-(add-to-list 'load-path "~/.emacs.d/elisp/zencoding/")
-(require 'zencoding-mode)
-(add-hook 'sgml-mode-hook 'zencoding-mode) ;; Auto-enable in any markup mode
-(add-hook 'php-mode-hook 'zencoding-mode) ;; Auto-enable in php mode
-
-;; ==============================
 ;; Ace Jump mode - easier navigation
 ;; ==============================
 
@@ -139,11 +130,19 @@
 (define-key iron-keys-mode-map (kbd "M-j") 'ace-jump-mode)
 
 ;; ==============================
+;; Auto-complete
+;; ==============================
+
+;; (add-to-list 'load-path "~/.emacs.d/elisp/auto-complete/auto-complete-1.3.1/dict")
+;; (add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/auto-complete/auto-complete-1.3.1/dict")
+;; (require 'auto-complete-config)
+;; (ac-config-default)
+
+;; ==============================
 ;; YASnippets
 ;; ==============================
 
 (add-to-list 'load-path "~/.emacs.d/elisp/yasnippet/")
-;; (setq yas/snippet-dirs '("~/.emacs.d/snippets"))
 (require 'yasnippet)
 (setq yas/verbosity 2)
 (yas/global-mode 1)

@@ -93,7 +93,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Version control for files
-(setq version-control never)
+(setq version-control 'never)
 ;; Backup by copying instead of clobbering symlinks
 (setq backup-by-copying t)
 ;; Number of versions to keep

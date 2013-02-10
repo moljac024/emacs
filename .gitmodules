@@ -4,3 +4,54 @@
 [submodule "themes/solarized"]
 	path = themes/solarized
 	url = https://github.com/bbatsov/solarized-emacs.git
+[submodule "elisp/ace-jump-mode"]
+	path = elisp/ace-jump-mode
+	url = https://github.com/winterTTr/ace-jump-mode.git
+[submodule "elisp/evil"]
+	path = elisp/evil
+	url = git://gitorious.org/evil/evil.git
+[submodule "elisp/helm"]
+	path = elisp/helm
+	url = https://github.com/emacs-helm/helm.git
+[submodule "elisp/yasnippet"]
+	path = elisp/yasnippet
+	url = https://github.com/capitaomorte/yasnippet
+[submodule "elisp/multi-web-mode"]
+	path = elisp/multi-web-mode
+	url = https://github.com/fgallina/multi-web-mode.git
+[submodule "elisp/web-mode"]
+	path = elisp/web-mode
+	url = https://github.com/fxbois/web-mode.git
+[submodule "elisp/php-mode"]
+	path = elisp/php-mode
+	url = https://github.com/ejmr/php-mode.git
+[submodule "elisp/haskell-mode"]
+	path = elisp/haskell-mode
+	url = https://github.com/haskell/haskell-mode.git
+[submodule "elisp/haml-mode"]
+	path = elisp/haml-mode
+	url = https://github.com/nex3/haml-mode.git
+[submodule "elisp/sass-mode"]
+	path = elisp/sass-mode
+	url = https://github.com/nex3/sass-mode.git
+[submodule "elisp/lua-mode"]
+	path = elisp/lua-mode
+	url = https://github.com/immerrr/lua-mode.git
+[submodule "elisp/markdown-mode"]
+	path = elisp/markdown-mode
+	url = https://github.com/defunkt/markdown-mode.git
+[submodule "elisp/rvm"]
+	path = elisp/rvm
+	url = https://github.com/senny/rvm.el.git
+[submodule "elisp/rhtml"]
+	path = elisp/rhtml
+	url = https://github.com/eschulte/rhtml.git
+[submodule "elisp/yaml-mode"]
+	path = elisp/yaml-mode
+	url = https://github.com/yoshiki/yaml-mode.git
+[submodule "elisp/evil-surround"]
+	path = elisp/evil-surround
+	url = https://github.com/timcharper/evil-surround.git
+[submodule "elisp/rainbow-mode"]
+	path = elisp/rainbow-mode
+	url = https://github.com/emacsmirror/rainbow-mode.git

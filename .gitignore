@@ -1,0 +1,16 @@
+auto-save-list/
+backup/
+tmp/
+org/
+image-dired/
+games/
+ctags/tags/
+eshell/lastdir
+eshell/history
+eshell/.#history
+tramp
+config/private.el
+auto-complete-history
+ede-projects.el
+tags
+*.elc

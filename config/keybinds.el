@@ -2,9 +2,6 @@
 ;; Keybindings
 ;;===============================
 
-;; How to remap all keys pointing to a command with another command:
-;; (define-key (current-global-map) [remap kill-line] 'my-homemade-kill-line)
-
 ;; ==============================
 ;; Remaps
 ;; ==============================

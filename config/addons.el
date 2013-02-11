@@ -34,6 +34,20 @@
 ;; Evil keybinds - jj is escape
 (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
 
+;; Delete words in hungarian notation, or underscores
+(evil-define-motion evil-little-word (count)
+  :type exclusive
+  (let* ((case-fold-search nil)
+         (count (if count count 1)))
+    (while (> count 0)
+      (forward-char)
+      (search-forward-regexp "[_A-Z]\\|\\W" nil t)
+      (backward-char)
+      (decf count))))
+
+;; Use dlw to delete little word
+(define-key evil-operator-state-map (kbd "lw") 'evil-little-word)
+
 ;; Evil addon - surround
 (add-to-list 'load-path "~/.emacs.d/elisp/evil-surround")
 (require 'surround)
@@ -116,6 +130,7 @@
 (add-to-list 'load-path "~/.emacs.d/elisp/helm")
 (require 'helm-config)
 (helm-mode 1)
+(global-set-key (kbd "C-x b") 'helm-buffers-list) ;; why doesn't helm-mode handle this?
 (global-set-key (kbd "C-c h") 'helm-mini)
 (define-key iron-keys-mode-map (kbd "M-h") 'helm-mini)
 
@@ -226,6 +241,13 @@
 (add-to-list 'auto-mode-alist '("\\.rjs$" . rhtml-mode))
 
 ;; ==============================
+;; Jinja2
+;; ==============================
+
+(add-to-list 'load-path "~/.emacs.d/elisp/jinja2-mode/")
+(require 'jinja2-mode)
+
+;; ==============================
 ;; Web-mode
 ;; ==============================
 
@@ -237,6 +259,19 @@
 (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.twig\\'" . web-mode))
+
+;; ==============================
+;; Multi-web-mode
+;; ==============================
+
+(add-to-list 'load-path "~/.emacs.d/elisp/multi-web-mode/")
+(require 'multi-web-mode)
+(setq mweb-default-major-mode 'html-mode)
+(setq mweb-tags '((php-mode "<\\?php\\|<\\? \\|<\\?=" "\\?>")
+                  (js-mode "<script[^>]*>" "</script>")
+                  (css-mode "<style[^>]*>" "</style>")))
+(setq mweb-filename-extensions '("php" "htm" "html" "ctp" "phtml" "php4" "php5"))
+;; (multi-web-global-mode 1)
 
 ;; ==============================
 ;; YAML mode

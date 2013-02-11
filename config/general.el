@@ -152,11 +152,11 @@
 ;; Remember Mode
 (require 'remember)
 
-;; Open recent files
+;; Recently opened files
 (require 'recentf)
 (recentf-mode t)
 ;; Maximum number of files remembered
-(setq recentf-max-saved-items 50)
+(setq recentf-max-saved-items 500)
 
 ;; Flymake - on the fly syntax error checking
 (require 'flymake)

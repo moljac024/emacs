@@ -137,7 +137,7 @@ File suffix is used to determine what program to run."
 (defun dired-open-music-dir ()
   "Open the music directory in dired"
   (interactive)
-  (dired "/mnt/data/Muzeeka"))
+  (dired "/mnt/data/Muzika"))
 
 (defun terminate-line ()
   "Terminate the line with a semicolon, and prepare to start typing on the next line. A second semicolon will not be inserted if one is already present.

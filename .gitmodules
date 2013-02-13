@@ -52,6 +52,3 @@
 [submodule "elisp/evil-surround"]
 	path = elisp/evil-surround
 	url = https://github.com/timcharper/evil-surround.git
-[submodule "elisp/rainbow-mode"]
-	path = elisp/rainbow-mode
-	url = https://github.com/emacsmirror/rainbow-mode.git

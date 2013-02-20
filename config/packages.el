@@ -12,6 +12,14 @@
 ;; Add a directory in home to load path
 (add-to-list 'load-path "~/.emacs.d/elisp/")
 
+(defvar needed-packages
+  '(clojure-mode coffee-mode
+                 haml-mode haskell-mode helm helm-projectile inf-ruby
+                 magit magithub markdown-mode paredit projectile
+                 python sass-mode rainbow-mode scss-mode solarized-theme
+                 volatile-highlights yaml-mode yari yasnippet zenburn-theme)
+  "A list of packages to ensure are installed at launch.")
+
 ;; ==============================
 ;; Org-mode
 ;; ==============================

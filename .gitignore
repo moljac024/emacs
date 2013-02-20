@@ -14,4 +14,5 @@ auto-complete-history
 ede-projects.el
 ac-comphist.dat
 tags
+elpa/*readme.txt
 *.elc

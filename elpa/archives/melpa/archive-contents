@@ -118,7 +118,7 @@
     [(20130114 1335)
      nil "Writable grep buffer and apply the changes to files [source: github]" single])
  (weechat .
-      [(20130220 1756)
+      [(20130220 1916)
        nil "No description available. [source: github]" tar])
  (websocket .
         [(20130123 2144)
@@ -514,7 +514,7 @@
          [(20130218 1829)
           nil "slime extensions for ritz [source: github]" single])
  (slime .
-    [(20130213 745)
+    [(20130220 1733)
      nil "Superior Lisp Interaction Mode for Emacs [source: github]" tar])
  (slim-mode .
         [(20130117 1415)
@@ -767,7 +767,7 @@
         [(20130212 2034)
          nil "Project oriented automatic builder and error highlighter, flymake for projects [source: github]" tar])
  (projectile .
-         [(20130218 955)
+         [(20130220 2031)
           ((s
         (1 0 0))
            (dash
@@ -1367,7 +1367,7 @@
      [(20120212 134)
       nil "No description available. [source: github]" single])
  (jade-mode .
-        [(20120903 757)
+        [(20130220 1245)
          ((sws-mode
            (0)))
          "Major mode for editing .jade files [source: github]" single])

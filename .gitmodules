@@ -4,3 +4,6 @@
 [submodule "themes/solarized"]
 	path = themes/solarized
 	url = https://github.com/bbatsov/solarized-emacs.git
+[submodule "elisp/twig-mode"]
+	path = elisp/twig-mode
+	url = https://github.com/moljac024/twig-mode.git

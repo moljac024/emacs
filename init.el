@@ -33,9 +33,9 @@
 (load "~/.emacs.d/config/sql.el")
 (load "~/.emacs.d/config/keybinds.el")
 (load "~/.emacs.d/config/private.el" 'noerror)
-(load "~/.emacs.d/config/packages.el")
 (load "~/.emacs.d/config/themes.el")
-(load "~/.emacs.d/config/addons.el")
+(load "~/.emacs.d/config/packages.el")
+;; (load "~/.emacs.d/config/addons.el")
 
 ;; ==============================
 ;; Open frequent files and directories

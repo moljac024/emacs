@@ -16,42 +16,42 @@
 ;; Evil
 ;; ==============================
 
-(add-to-list 'load-path "~/.emacs.d/elisp/evil")
-(require 'evil)
-(evil-mode 1)
+;; (add-to-list 'load-path "~/.emacs.d/elisp/evil")
+;; (require 'evil)
+;; (evil-mode 1)
 
-;; Evil settings
-(setq evil-shift-width 4)
+;; ;; Evil settings
+;; (setq evil-shift-width 4)
 
-;; Evil keybinds - esc quits
-(define-key evil-normal-state-map [escape] 'keyboard-quit)
-(define-key evil-visual-state-map [escape] 'keyboard-quit)
-(define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
-(define-key minibuffer-local-ns-map [escape] 'minibuffer-keyboard-quit)
-(define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
-(define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
-(define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
-;; Evil keybinds - jj is escape
-(key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
+;; ;; Evil keybinds - esc quits
+;; (define-key evil-normal-state-map [escape] 'keyboard-quit)
+;; (define-key evil-visual-state-map [escape] 'keyboard-quit)
+;; (define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
+;; (define-key minibuffer-local-ns-map [escape] 'minibuffer-keyboard-quit)
+;; (define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
+;; (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
+;; (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
+;; ;; Evil keybinds - jj is escape
+;; (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
 
-;; Delete words in hungarian notation, or underscores
-(evil-define-motion evil-little-word (count)
-  :type exclusive
-  (let* ((case-fold-search nil)
-         (count (if count count 1)))
-    (while (> count 0)
-      (forward-char)
-      (search-forward-regexp "[_A-Z]\\|\\W" nil t)
-      (backward-char)
-      (decf count))))
+;; ;; Delete words in hungarian notation, or underscores
+;; (evil-define-motion evil-little-word (count)
+;;   :type exclusive
+;;   (let* ((case-fold-search nil)
+;;          (count (if count count 1)))
+;;     (while (> count 0)
+;;       (forward-char)
+;;       (search-forward-regexp "[_A-Z]\\|\\W" nil t)
+;;       (backward-char)
+;;       (decf count))))
 
-;; Use dlw to delete little word
-(define-key evil-operator-state-map (kbd "lw") 'evil-little-word)
+;; ;; Use dlw to delete little word
+;; (define-key evil-operator-state-map (kbd "lw") 'evil-little-word)
 
-;; Evil addon - surround
-(add-to-list 'load-path "~/.emacs.d/elisp/evil-surround")
-(require 'surround)
-(global-surround-mode 1)
+;; ;; Evil addon - surround
+;; (add-to-list 'load-path "~/.emacs.d/elisp/evil-surround")
+;; (require 'surround)
+;; (global-surround-mode 1)
 
 ;; ==============================
 ;; Org-mode
@@ -148,10 +148,13 @@
 ;; Auto-complete
 ;; ==============================
 
-;; (add-to-list 'load-path "~/.emacs.d/elisp/auto-complete/auto-complete-1.3.1/dict")
-;; (add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/auto-complete/auto-complete-1.3.1/dict")
-;; (require 'auto-complete-config)
-;; (ac-config-default)
+(add-to-list 'load-path "~/.emacs.d/elisp/auto-complete")
+(add-to-list 'load-path "~/.emacs.d/elisp/auto-complete/lib/popup")
+(add-to-list 'load-path "~/.emacs.d/elisp/auto-complete/lib/fuzzy")
+(add-to-list 'load-path "~/.emacs.d/elisp/auto-complete/lib/ert")
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/auto-complete/auto-complete-1.3.1/dict")
+(require 'auto-complete-config)
+(ac-config-default)
 
 ;; ==============================
 ;; YASnippets
@@ -246,19 +249,28 @@
 
 (add-to-list 'load-path "~/.emacs.d/elisp/jinja2-mode/")
 (require 'jinja2-mode)
+;; Open twig files in jinja2-mode
+;; (add-to-list 'auto-mode-alist '("\\.twig\\'" . jinja2-mode))
+
+;; ==============================
+;; Twig
+;; ==============================
+
+(add-to-list 'load-path "~/.emacs.d/elisp/twig-mode/")
+(require 'twig-mode)
 
 ;; ==============================
 ;; Web-mode
 ;; ==============================
 
-(add-to-list 'load-path "~/.emacs.d/elisp/web-mode/")
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.twig\\'" . web-mode))
+;; (add-to-list 'load-path "~/.emacs.d/elisp/web-mode/")
+;; (require 'web-mode)
+;; (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.twig\\'" . web-mode))
 
 ;; ==============================
 ;; Multi-web-mode

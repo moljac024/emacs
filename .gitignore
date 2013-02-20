@@ -12,5 +12,6 @@ tramp
 config/private.el
 auto-complete-history
 ede-projects.el
+ac-comphist.dat
 tags
 *.elc

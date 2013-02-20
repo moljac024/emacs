@@ -57,6 +57,10 @@
 ;; (setq c-set-offset 4)
 ;; (setq sgml-basic-offset 4)
 
+;; Save horizontal space
+(c-set-offset 'arglist-intro '+)
+(c-set-offset 'arglist-close 0)
+
 ;; Disable tabs completely - write spaces to file
 (setq-default indent-tabs-mode nil)
 
@@ -148,9 +152,6 @@
 ;; Better unique buffer names
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward)
-
-;; Remember Mode
-(require 'remember)
 
 ;; Recently opened files
 (require 'recentf)

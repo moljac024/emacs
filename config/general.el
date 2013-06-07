@@ -3,6 +3,35 @@
 ;;===============================
 
 ;; ==============================
+;; Enable extra built-in packages
+;; ==============================
+
+;; Interactively do things
+(require 'ido)
+(ido-mode t)
+;; Ido fuzzy matching
+(setq ido-enable-flex-matching t)
+(setq ido-enable-tramp-completion t)
+(setq ido-enable-last-directory-history nil)
+(setq ido-confirm-unique-completion nil)
+(setq ido-show-dot-for-dired t)
+
+;; Better unique buffer names
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward)
+
+;; Recently opened files
+(require 'recentf)
+(recentf-mode t)
+;; Maximum number of files remembered
+(setq recentf-max-saved-items 500)
+
+;; Flymake - on the fly syntax error checking
+(require 'flymake)
+(set-face-background 'flymake-errline "red4")
+(set-face-background 'flymake-warnline "dark slate blue")
+
+;; ==============================
 ;; Look and feel
 ;; ==============================
 
@@ -121,6 +150,9 @@
 ;; TRAMP - set default method (can be su, sudo, ssh...)
 (setq tramp-default-method "sudo")
 
+;; Praise the lord! No more ediff window!
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+
 ;; ==============================
 ;; Misc.
 ;; ==============================
@@ -134,32 +166,3 @@
 (setq eshell-last-dir-ring-file-name "~/.emacs.d/eshell/lastdir")
 ;; Eshell - prefer built-in lisp functions over external commands
 (setq eshell-prefer-lisp-functions t)
-
-;; ==============================
-;; Enable extra built-in packages
-;; ==============================
-
-;; Interactively do things
-(require 'ido)
-(ido-mode t)
-;; Ido fuzzy matching
-(setq ido-enable-flex-matching t)
-(setq ido-enable-tramp-completion t)
-(setq ido-enable-last-directory-history nil)
-(setq ido-confirm-unique-completion nil)
-(setq ido-show-dot-for-dired t)
-
-;; Better unique buffer names
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'post-forward)
-
-;; Recently opened files
-(require 'recentf)
-(recentf-mode t)
-;; Maximum number of files remembered
-(setq recentf-max-saved-items 500)
-
-;; Flymake - on the fly syntax error checking
-(require 'flymake)
-(set-face-background 'flymake-errline "red4")
-(set-face-background 'flymake-warnline "dark slate blue")

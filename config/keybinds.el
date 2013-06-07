@@ -36,12 +36,23 @@
 ;; Global keybinds
 ;; ==============================
 
+;; Esc quits, not this triple esc nonsense
+(define-key minibuffer-local-map [escape] 'keyboard-escape-quit)
+(define-key minibuffer-local-ns-map [escape] 'keyboard-escape-quit)
+(define-key minibuffer-local-completion-map [escape] 'keyboard-escape-quit)
+(define-key minibuffer-local-must-match-map [escape] 'keyboard-escape-quit)
+(define-key minibuffer-local-isearch-map [escape] 'keyboard-escape-quit)
+
+;; Esc quits, not this triple esc nonsense
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
 ;; Apropos instead of apropos-command with C-h a
 (global-set-key (kbd "C-h a") 'apropos)
 ;; Make return indent new lines
 (global-set-key (kbd "RET") 'newline-and-indent)
 ;; (global-set-key (kbd "RET") 'default-indent-new-line)
 ;; (global-set-key (kbd "RET") 'reindent-then-newline-and-indent)
+(global-set-key [(shift return)] 'insert-empty-line)
 ;; Buffer-menu instead of list-buffers:
 ;; (global-set-key (kbd "C-x C-b") 'buffer-menu)
 ;; Ibuffer instead of list-buffers:
@@ -103,6 +114,11 @@
 (define-key iron-keys-mode-map (kbd "M-0") 'delete-window)
 (define-key iron-keys-mode-map (kbd "M-o") 'other-window)
 (define-key iron-keys-mode-map (kbd "M-k") 'my-server-kill-this-buffer)
+(define-key iron-keys-mode-map (kbd "M-<left>") 'windmove-left)
+(define-key iron-keys-mode-map (kbd "M-<right>") 'windmove-right)
+(define-key iron-keys-mode-map (kbd "M-<up>") 'windmove-up)
+(define-key iron-keys-mode-map (kbd "M-<down>") 'windmove-down)
+
 ;; Who moves by word anyway? Rebind these to more useful commands:
 ;; (define-key iron-keys-mode-map (kbd "M-f") 'find-file)
 ;; (define-key iron-keys-mode-map (kbd "M-b") 'switch-to-buffer)

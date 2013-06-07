@@ -2,40 +2,18 @@
 ;; My functions
 ;;===============================
 
-(defun vendor (library &optional directory)
-  "Smart loading of libraries from vendor directory"
-  (let* ((file (symbol-name (if directory directory library)))
-         (normal (concat "~/.emacs.d/elisp/" file))
-         (suffix (concat normal ".el"))
-         (personal (concat "~/.emacs.d/config/" file)))
-    (cond
-     ((file-directory-p normal) (add-to-list 'load-path normal) (require library))
-     ((file-directory-p suffix) (add-to-list 'load-path suffix) (require library))
-     ((file-exists-p suffix) (require library)))
-    (when (file-exists-p (concat personal ".el"))
-      (load personal))))
-
-(defun vendor-load (file &optional personal)
-  "Like vendor, but load file instead of require it"
-  (let* ((file (symbol-name file))
-         (personal (concat "~/.emacs.d/config/" (if personal personal file))))
-    (cond
-     ((file-exists-p file) (load normal))
-     (when (file-exists-p (concat personal ".el"))
-       (load personal)))))
-
 ;; Whole line or region - yank/kill whole line if no region activated
-(put 'kill-ring-save 'interactive-form
-     '(interactive
-       (if (use-region-p)
-           (list (region-beginning) (region-end))
-         (list (line-beginning-position) (line-beginning-position 2)))))
+;; (put 'kill-ring-save 'interactive-form
+;;      '(interactive
+;;        (if (use-region-p)
+;;            (list (region-beginning) (region-end))
+;;          (list (line-beginning-position) (line-beginning-position 2)))))
 
-(put 'kill-region 'interactive-form
-     '(interactive
-       (if (use-region-p)
-           (list (region-beginning) (region-end))
-         (list (line-beginning-position) (line-beginning-position 2)))))
+;; (put 'kill-region 'interactive-form
+;;      '(interactive
+;;        (if (use-region-p)
+;;            (list (region-beginning) (region-end))
+;;          (list (line-beginning-position) (line-beginning-position 2)))))
 
 (defun comment-dwim-line (&optional arg)
   "Replacement for the comment-dwim command.
@@ -70,6 +48,12 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 (defun concat-string-list (list)
   "Return a string which is a concatenation of all elements of the list separated by spaces"
   (mapconcat '(lambda (obj) (format "%s" obj)) list " "))
+
+(defun insert-empty-line ()
+ (interactive)
+ (move-end-of-line nil)
+ (open-line 1)
+ (next-line 1))
 
 (defun run-current-file ()
   "Execute or compile the current file.

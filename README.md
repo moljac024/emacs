@@ -16,5 +16,4 @@ git submodule init git submodule update
 
 ### NOTE:
 
-This configuration is for emacs 24 only. Emacs 24 has not yet been released,
-but is already very stable. You can grab the latest [here](ftp://alpha.gnu.org/gnu/emacs/pretest)
+This configuration is for emacs 24 only.

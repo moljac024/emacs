@@ -53,6 +53,8 @@
             (define-key dired-mode-map
               (kbd "C-j") 'dired-find-file-other-window)
             (define-key dired-mode-map
+              (kbd "o") 'dired-find-file)
+            (define-key dired-mode-map
               (kbd "<C-return>") 'dired-find-file-other-window)
             (define-key dired-mode-map
               (kbd "h") 'dired-omit-mode) ;; Toggle showing of hidden files with h

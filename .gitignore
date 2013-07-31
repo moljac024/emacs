@@ -16,3 +16,5 @@ ac-comphist.dat
 tags
 elpa/
 *.elc
+session.*
+projectile*

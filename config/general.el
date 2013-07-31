@@ -27,9 +27,9 @@
 (setq recentf-max-saved-items 500)
 
 ;; Flymake - on the fly syntax error checking
-(require 'flymake)
-(set-face-background 'flymake-errline "red4")
-(set-face-background 'flymake-warnline "dark slate blue")
+;; (require 'flymake)
+;; (set-face-background 'flymake-errline "red4")
+;; (set-face-background 'flymake-warnline "dark slate blue")
 
 ;; ==============================
 ;; Look and feel
@@ -50,10 +50,10 @@
 ;; Disable menubar
 (menu-bar-mode -1)
 
-;; Show line-number in the mode line
+;; Show line and column number in the mode line
 (line-number-mode 1)
-;; Show column-number in the mode line
 (column-number-mode 1)
+
 ;; Display the time in mode line
 (setq display-time-day-and-date t
       display-time-24hr-format t)
@@ -86,6 +86,9 @@
 ;; (setq c-set-offset 4)
 ;; (setq sgml-basic-offset 4)
 
+;; Tab stops
+(setq tab-stop-list (number-sequence 4 120 4))
+
 ;; Save horizontal space
 (c-set-offset 'arglist-intro '+)
 (c-set-offset 'arglist-close 0)
@@ -101,12 +104,21 @@
 ;; Sane commenting style
 (setq comment-style 'indent)
 
+;; Highlith long lines
+(require 'whitespace)
+(setq whitespace-line-column 80) ;; limit line length
+(setq whitespace-style '(face lines-tail))
+(add-hook 'prog-mode-hook 'whitespace-mode)
+
 ;; ==============================
 ;; Behavior
 ;; ==============================
 
 ;; Backtrace when a problem occurs
 ;; (setq debug-on-error t)
+
+;; Scroll by single lines
+(setq-default scroll-step 1)
 
 ;; Transient mark mode aka visual selection
 (setq transient-mark-mode t)
@@ -152,6 +164,11 @@
 
 ;; Praise the lord! No more ediff window!
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+
+;; Horizontal split if window is wide enough
+(setq ediff-split-window-function (if (> (frame-width) 120)
+                                          'split-window-horizontally
+                                        'split-window-vertically))
 
 ;; ==============================
 ;; Misc.

@@ -33,8 +33,8 @@
 (load "~/.emacs.d/config/sql.el")
 (load "~/.emacs.d/config/keybinds.el")
 (load "~/.emacs.d/config/private.el" 'noerror)
-(load "~/.emacs.d/config/themes.el")
 (load "~/.emacs.d/config/packages.el")
+(load "~/.emacs.d/config/themes.el")
 (load "~/.emacs.d/config/addons.el")
 
 ;; ==============================
@@ -52,8 +52,38 @@
 (find-file-if-exists "~/.emacs.d/config/")
 (find-file-if-exists "~/.emacs.d/elisp/")
 (find-file-if-exists "/mnt/data")
-;; (find-file-if-exists "/media/Moljac Transcend")
 (find-file-if-exists "~/")
+
+;; ==============================
+;; Load extra packages
+;; ==============================
+
+;; Whole line or region
+(require 'whole-line-or-region)
+(whole-line-or-region-mode)
+
+;; Auto-pair
+(autopair-global-mode)
+
+;; Undo tree
+(global-undo-tree-mode 1)
+
+;; Key chord
+(key-chord-mode 1)
+
+;; Auto-complete
+(require 'auto-complete)
+(global-auto-complete-mode)
+
+;; YASnippet
+;; (yas-global-mode 1)
+
+;; Twig mode
+(add-to-list 'load-path "~/.emacs.d/elisp/twig-mode/")
+(require 'twig-mode)
+
+;; Evil mode
+(evil-mode 1)
 
 ;; ==============================
 ;; Startup actions

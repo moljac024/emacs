@@ -58,7 +58,8 @@
 ;; Ibuffer instead of list-buffers:
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 ;; Function keys (F5-F9 unbound by default)
-(global-set-key (kbd "<f2>") 'execute-extended-command)
+;; (global-set-key (kbd "<f2>") 'execute-extended-command)
+(global-set-key (kbd "<f2>") 'smex)
 (global-set-key (kbd "<f8>") 'recompile)
 (global-set-key (kbd "<f9>") 'run-current-file)
 ;; Toggle whitespace mode

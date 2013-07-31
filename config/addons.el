@@ -1,5 +1,5 @@
 ;;===============================
-;; Extra emacs packages
+;; Extra emacs packages configuration
 ;;===============================
 
 
@@ -7,21 +7,19 @@
 ;; Evil mode
 ;; ==============================
 
-;; ;; Evil mode
-;; (evil-mode 1)
-;; ;; Evil surround
-;; (global-surround-mode 1)
-
-;; ;; Evil keybinds - esc quits
-;; (define-key evil-normal-state-map [escape] 'keyboard-quit)
-;; (define-key evil-visual-state-map [escape] 'keyboard-quit)
-;; (define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
-;; (define-key minibuffer-local-ns-map [escape] 'minibuffer-keyboard-quit)
-;; (define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
-;; (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
-;; (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
-;; ;; Evil keybinds - jj is escape
-;; (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
+;; Evil keybinds - esc quits
+(add-hook 'evil-mode-hook
+          (lambda ()
+            (define-key evil-normal-state-map [escape] 'keyboard-quit)
+            (define-key evil-visual-state-map [escape] 'keyboard-quit)
+            (define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
+            (define-key minibuffer-local-ns-map [escape] 'minibuffer-keyboard-quit)
+            (define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
+            (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
+            (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
+            ;; Evil keybinds - jj is escape
+            (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
+            ))
 
 ;; ==============================
 ;; Org-mode
@@ -39,31 +37,12 @@
 ;; Flycheck - on the fly syntax checking
 ;; ==============================
 
-;; (add-hook 'after-init-hook #'global-flycheck-mode)
-
+;; Turn flycheck on globally
+(add-hook 'after-init-hook #'global-flycheck-mode)
 ;; No checkdock checker
-;; (eval-after-load 'flycheck '(setq flycheck-checkers (delq 'emacs-lisp-checkdoc flycheck-checkers)))
-
-;; ==============================
-;; Whole line or region
-;; ==============================
-
-(require 'whole-line-or-region)
-(whole-line-or-region-mode)
-
-;; ==============================
-;; Auto-pair
-;; ==============================
-
-(require 'autopair)
-(autopair-global-mode)
-
-;; ==============================
-;; Undo-tree
-;; ==============================
-
-(require 'undo-tree)
-(global-undo-tree-mode 1)
+(eval-after-load 'flycheck '(setq flycheck-checkers (delq 'emacs-lisp-checkdoc flycheck-checkers)))
+;; When to flycheck
+;; (setq flycheck-check-syntax-automatically '(mode-enabled save))
 
 ;; ==============================
 ;; Magit
@@ -87,23 +66,13 @@
 ;; Keychord
 ;; ==============================
 
-;; (require 'key-chord)
-;; (key-chord-mode 1)
-;; ;; How long to wait for chord
-;; (setq key-chord-two-keys-delay 0.5)
-
-;; ==============================
-;; Auto-complete mode
-;; ==============================
-
-(require 'auto-complete)
-(global-auto-complete-mode)
+;; How long to wait for chord
+(setq key-chord-two-keys-delay 0.5)
 
 ;; ==============================
 ;; Helm - steer me admiral
 ;; ==============================
 
-;; (helm-mode 1)
 (global-set-key (kbd "C-c h") 'helm-mini)
 (define-key iron-keys-mode-map (kbd "M-h") 'helm-mini)
 
@@ -119,13 +88,6 @@
 ;; ==============================
 
 (setq inferior-lisp-program "/usr/bin/sbcl")
-
-;; ==============================
-;; YASnippet
-;; ==============================
-
-(require 'yasnippet)
-(yas-global-mode 1)
 
 ;; ==============================
 ;; Haskell mode
@@ -149,15 +111,3 @@
 ;; (No need with multi-major mode solutions like nxhtml, multi-web-mode etc.)
 (add-to-list 'auto-mode-alist '("/*.\.php[345]?$" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.inc$" . php-mode))
-
-;; Flymake mode for php
-;; (add-hook 'php-mode-hook (lambda() (flymake-mode 1)))
-;; (define-key php-mode-map '[M-S-up] 'flymake-goto-prev-error)
-;; (define-key php-mode-map '[M-S-down] 'flymake-goto-next-error)
-
-;; ==============================
-;; Twig-mode
-;; ==============================
-
-(add-to-list 'load-path "~/.emacs.d/elisp/twig-mode/")
-(require 'twig-mode)

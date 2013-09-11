@@ -40,8 +40,9 @@
 
 ;; Change the default font and font size
 (set-face-attribute 'default nil :height 120)
-;; (set-face-attribute 'default nil :font Monospace)
+;; (set-face-attribute 'default nil :family "Monospace")
 ;; (set-face-attribute 'default nil :family "DejaVu Sans Mono" :height 120)
+;; (set-face-attribute 'default nil :family "Andale Mono" :height 120)
 
 ;; Disable toolbar
 (tool-bar-mode -1)

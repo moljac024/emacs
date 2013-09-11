@@ -11,8 +11,8 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/solarized/")
 ;; Set default desired theme
 ;; (setq custom-color-theme-default 'zenburn)
-;; (setq custom-color-theme-default 'solarized-light)
-(setq custom-color-theme-default 'moe-light)
+(setq custom-color-theme-default 'solarized-light)
+;; (setq custom-color-theme-default 'moe-light)
 
 ;; Manage color themes with emacs server:
 ;; Assume color theme is wanted and enabled. When making a frame check

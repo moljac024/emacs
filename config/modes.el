@@ -15,9 +15,9 @@
 ;; Emacs comes with two built-in javascript modes:
 ;; javascript-mode - which is outdated, and
 ;; js-mode - which is what we will use
-(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
-(add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
-(add-to-list 'auto-mode-alist '("composer.lock" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
+(add-to-list 'auto-mode-alist '("composer.lock" . js2-mode))
 
 ;; Open html template files in html mode
 (add-to-list 'auto-mode-alist '("\\.html.php$" . html-mode))

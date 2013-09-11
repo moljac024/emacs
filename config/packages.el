@@ -57,6 +57,7 @@
     sass-mode            ;; Major mode for SASS
     yaml-mode            ;; Major mode for YAML
     virtualenv           ;; Minor mode for python virtual environemnts
+    smex                 ;; Better M-x
     ;; yasnippet         ;; Snippets
 
     solarized-theme      ;; Solarized theme

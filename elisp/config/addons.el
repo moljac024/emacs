@@ -103,15 +103,11 @@
 ;; Php-mode
 ;; ==============================
 
-;; Force PEAR coding standards for PHP
-(setq php-mode-force-pear t)
-(add-hook 'php-mode-hook 'pear/php-mode-init)
 ;; PHP mode - single line comments, instead of C-style:
 (add-hook 'php-mode-hook
           (lambda (&rest ignore)
             (setq comment-start "//")
             (setq comment-end "")))
 ;; Automatically activate PHP mode for .php files
-;; (No need with multi-major mode solutions like nxhtml, multi-web-mode etc.)
 (add-to-list 'auto-mode-alist '("/*.\.php[345]?$" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.inc$" . php-mode))

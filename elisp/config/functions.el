@@ -2,19 +2,6 @@
 ;; My functions
 ;;===============================
 
-;; Whole line or region - yank/kill whole line if no region activated
-;; (put 'kill-ring-save 'interactive-form
-;;      '(interactive
-;;        (if (use-region-p)
-;;            (list (region-beginning) (region-end))
-;;          (list (line-beginning-position) (line-beginning-position 2)))))
-
-;; (put 'kill-region 'interactive-form
-;;      '(interactive
-;;        (if (use-region-p)
-;;            (list (region-beginning) (region-end))
-;;          (list (line-beginning-position) (line-beginning-position 2)))))
-
 (defun comment-dwim-line (&optional arg)
   "Replacement for the comment-dwim command.
         If no region is selected and current line is not blank and we are not at the end of the line,

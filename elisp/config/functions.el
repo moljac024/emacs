@@ -110,6 +110,11 @@ File suffix is used to determine what program to run."
   (interactive)
   (dired "/mnt/data/Muzika"))
 
+(defun find-file-if-exists (file)
+  "Open file if it exists."
+  (if (file-exists-p file)
+      (find-file file)))
+
 (defun terminate-line ()
   "Terminate the line with a semicolon, and prepare to start typing on the next line. A second semicolon will not be inserted if one is already present.
 If the line begins with 'case', a colon will be inserted insead."

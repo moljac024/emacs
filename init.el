@@ -1,88 +1,58 @@
 ;; ==============================
-;; Requires
+;; Load configuration files
 ;; ==============================
 
-;; Enable Common Lisp features
-(require 'cl)
+(defvar emacs-config-dir
+  (expand-file-name (concat user-emacs-directory "/config")))
 
-;; ==============================
-;; Customize
-;; ==============================
-
-;; Keep customization in a separate file
-(setq custom-file "~/.emacs.d/elisp/config/custom.el")
-;; Load the customizations
-(load custom-file 'noerror)
+(defun load-config (config)
+  (load (expand-file-name config emacs-config-dir)))
 
 ;; ==============================
 ;; Load configuration files
 ;; ==============================
 
-(load "~/.emacs.d/elisp/config/general.el")
-(load "~/.emacs.d/elisp/config/modes.el")
-(load "~/.emacs.d/elisp/config/buffers.el")
-(load "~/.emacs.d/elisp/config/dired.el")
-(load "~/.emacs.d/elisp/config/images.el")
-(load "~/.emacs.d/elisp/config/irc.el")
-(load "~/.emacs.d/elisp/config/functions.el")
-(load "~/.emacs.d/elisp/config/tabs.el")
-(load "~/.emacs.d/elisp/config/sql.el")
-(load "~/.emacs.d/elisp/config/keybinds.el")
-(load "~/.emacs.d/elisp/config/private.el" 'noerror)
-(load "~/.emacs.d/elisp/config/packages.el")
-(load "~/.emacs.d/elisp/config/themes.el")
-(load "~/.emacs.d/elisp/config/addons.el")
+(load-config "core")
+(load-config "general")
+(load-config "modes")
+(load-config "buffers")
+(load-config "dired")
+(load-config "images")
+(load-config "irc")
+(load-config "files")
+(load-config "util")
+(load-config "tabs")
+(load-config "sql")
+(load-config "keybinds")
+(load-config "packages")
+(load-config "themes")
+(load-config "customize")
+(load-config "addons")
+
+;; ==============================
+;; Private files and customize settings
+;; ==============================
+
+;; Private files
+(load (expand-file-name "private.el" emacs-config-dir) 'noerror)
+
+;; Customize
+(setq custom-file
+      (expand-file-name "customize.el" emacs-config-dir))
+(load custom-file 'noerror)
 
 ;; ==============================
 ;; Open frequent files and directories
 ;; ==============================
 
-;; Open file only if it exists
-(defun find-file-if-exists (file)
-  (if (file-exists-p file)
-      (find-file file)))
-
 (find-file-if-exists "~/.emacs.d/org/Notes.org")
 (find-file-if-exists "~/.emacs.d/org/Activities.org")
 (find-file-if-exists "~/.emacs.d/")
-(find-file-if-exists "~/.emacs.d/elisp/")
-(find-file-if-exists "/mnt/data")
 (find-file-if-exists "~/")
 
 ;; ==============================
-;; Load extra packages
+;; Vendor packages
 ;; ==============================
 
-;; Whole line or region
-(require 'whole-line-or-region)
-(whole-line-or-region-mode)
-
-;; Auto-pair
-(autopair-global-mode)
-
-;; Undo tree
-(global-undo-tree-mode 1)
-
-;; Key chord
-(key-chord-mode 1)
-
-;; Auto-complete
-(require 'auto-complete)
-(global-auto-complete-mode)
-
-;; YASnippet
-;; (yas-global-mode 1)
-
-;; Twig mode
-(add-to-list 'load-path "~/.emacs.d/elisp/twig-mode/")
-(require 'twig-mode)
-
-;; Evil mode
-(evil-mode 1)
-
-;; ==============================
-;; Startup actions
-;; ==============================
-
-;; Start eshell
-;; (eshell)
+(add-subfolders-to-load-path "~/.emacs.d/vendor")
+(load-config "vendor")

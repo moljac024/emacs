@@ -1,3 +1,0 @@
-[submodule "elisp/twig-mode"]
-    path = elisp/twig-mode
-    url = https://github.com/moljac024/twig-mode.git

@@ -1,0 +1,157 @@
+;;===============================
+;; General settings
+;;===============================
+
+;; ==============================
+;; Enable extra built-in packages
+;; ==============================
+
+;; Interactively do things
+(require 'ido)
+(ido-mode t)
+;; Ido fuzzy matching
+(setq ido-enable-flex-matching t)
+(setq ido-enable-tramp-completion t)
+(setq ido-enable-last-directory-history nil)
+(setq ido-confirm-unique-completion nil)
+(setq ido-show-dot-for-dired t)
+
+;; Better unique buffer names
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward)
+
+;; Recently opened files
+(require 'recentf)
+(recentf-mode t)
+;; Maximum number of files remembered
+(setq recentf-max-saved-items 500)
+
+;; ==============================
+;; Look and feel
+;; ==============================
+
+;; No startup message thank you
+(setq inhibit-startup-message t)
+
+;; Change the default font and font size
+(set-face-attribute 'default nil :height 120)
+;; (set-face-attribute 'default nil :family "Monospace")
+;; (set-face-attribute 'default nil :family "DejaVu Sans Mono" :height 120)
+;; (set-face-attribute 'default nil :family "Andale Mono" :height 120)
+
+;; UI elements
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(menu-bar-mode -1)
+;; Show line and column number in the mode line
+(line-number-mode 1)
+(column-number-mode 1)
+;; Display the time in mode line
+(setq display-time-day-and-date t
+      display-time-24hr-format t)
+(display-time)
+
+;; Highlight the line only in current buffer
+(setq hl-line-sticky-flag nil)
+;; Enable line highlighting in certain modes
+(add-hook 'dired-mode-hook 'hl-line-mode)
+(add-hook 'Buffer-menu-mode-hook 'hl-line-mode)
+(add-hook 'ibuffer-mode-hook 'hl-line-mode)
+(add-hook 'bs-mode-hook 'hl-line-mode)
+(add-hook 'emms-playlist-mode-hook 'hl-line-mode)
+
+;; ANSI color in the emacs shell (M-x shell)
+(autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+;; ==============================
+;; Indentation, whitespace and indenting
+;; ==============================
+
+;; Indentation and offset rules
+(setq-default tab-width 4)
+(setq standard-indent 4)
+;; (setq c-basic-offset 4)
+;; (setq c-set-offset 4)
+;; (setq sgml-basic-offset 4)
+
+;; Tab stops
+(setq tab-stop-list (number-sequence 4 120 4))
+
+;; Save horizontal space
+(c-set-offset 'arglist-intro '+)
+(c-set-offset 'arglist-close 0)
+
+;; Disable tabs completely - write spaces to file
+(setq-default indent-tabs-mode nil)
+
+;; Always make sure files have a final new line at the end
+(setq require-final-newline t)
+;; Automatically clean up extra whitespace when saving a file
+(add-hook 'before-save-hook (lambda () (whitespace-cleanup)))
+
+;; Sane commenting style
+(setq comment-style 'indent)
+
+;; Highlith long lines
+(require 'whitespace)
+(setq whitespace-line-column 80) ;; limit line length
+(setq whitespace-style '(face lines-tail))
+(add-hook 'prog-mode-hook 'whitespace-mode)
+
+;; ==============================
+;; Behavior
+;; ==============================
+
+;; Backtrace when a problem occurs
+(setq debug-on-error t)
+
+;; Scroll by single lines
+(setq-default scroll-step 1)
+
+;; Delete selection - behave more like CUA
+(delete-selection-mode t)
+
+;; Don't save duplicate entries to kill ring
+(setq kill-do-not-save-duplicates t)
+
+;; Automatically reload files that change on disc
+(global-auto-revert-mode)
+;; Don't notify when automatically reverting a buffer to match the file
+(setq auto-revert-verbose nil)
+
+;; Write y-or-n instead of yes-or-no
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; Version control for files
+(setq version-control 'never)
+;; Backup by copying instead of clobbering symlinks
+(setq backup-by-copying t)
+;; Number of versions to keep
+(setq kept-new-versions 2)
+(setq kept-old-versions 0)
+;; Silently delete old versions of backups without nagging
+(setq delete-old-versions t)
+;; Save all backup files in this directory.
+(setq backup-directory-alist `(("." . "~/.emacs.d/backup/")))
+;; No backup files
+(setq backup-inhibited t)
+;; No auto-save files
+(setq auto-save-default nil)
+;; No session restore files
+(setq auto-save-list-file-prefix nil)
+
+;; Set default browser for opening links
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "x-www-browser")
+
+;; TRAMP - set default method (can be su, sudo, ssh...)
+(setq tramp-default-method "sudo")
+
+;; Praise the lord! No more ediff window!
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+
+;; Horizontal split if window is wide enough
+(setq ediff-split-window-function (if (> (frame-width) 120)
+                                          'split-window-horizontally
+                                        'split-window-vertically))

@@ -30,16 +30,18 @@
 (load-config "addons")
 
 ;; ==============================
-;; Private files and customize settings
+;; Customize
 ;; ==============================
 
-;; Private files
-(load (expand-file-name "private.el" emacs-config-dir) 'noerror)
-
-;; Customize
 (setq custom-file
       (expand-file-name "customize.el" emacs-config-dir))
 (load custom-file 'noerror)
+
+;; ==============================
+;; Private settings
+;; ==============================
+
+(load (expand-file-name "private.el" emacs-config-dir) 'noerror)
 
 ;; ==============================
 ;; Open frequent files and directories

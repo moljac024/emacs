@@ -1,5 +1,5 @@
 ;; ==============================
-;; Load configuration files
+;; Find configuration files
 ;; ==============================
 
 (defvar emacs-config-dir

@@ -1,5 +1,5 @@
 #!/bin/bash
-EMACS_DIRECTORY=~/.emacs
+EMACS_DIRECTORY=~/.emacs.d
 
 cd ~
 git clone https://github.com/moljac024/emacs.git $EMACS_DIRECTORY

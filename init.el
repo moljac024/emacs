@@ -1,8 +1,8 @@
 ;; ==============================
-;; Bootstrap configuration
+;; Bootstrap the configuration
 ;; ==============================
 
-(load (expand-file-name "core.el" (concat user-emacs-directory "/config")))
+(load (expand-file-name "core" (expand-file-name "config" user-emacs-directory)))
 
 ;; ==============================
 ;; Load needed packages
@@ -14,8 +14,8 @@
 ;; Main configuration files
 ;; ==============================
 
-(load-config "core")
 (load-config "ui")
+(load-config "themes")
 (load-config "general")
 (load-config "keybinds")
 (load-config "iron-keys")
@@ -27,7 +27,6 @@
 (load-config "irc")
 (load-config "tabs")
 (load-config "sql")
-(load-config "themes")
 (load-config "util")
 (load-config "flycheck")
 (load-config "navigation")

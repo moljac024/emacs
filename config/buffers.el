@@ -141,3 +141,7 @@
                                     default-directory)
                                 default-directory))))
      (ido-find-file-in-dir default-directory))))
+
+;; Better unique buffer names
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward)

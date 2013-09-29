@@ -15,6 +15,9 @@
 ;; Key chord
 (key-chord-mode 1)
 
+;; How long to wait for chord
+(setq key-chord-two-keys-delay 0.5)
+
 ;; Auto-complete
 (require 'auto-complete)
 (global-auto-complete-mode)

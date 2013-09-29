@@ -3,16 +3,13 @@
 ;;===============================
 
 ;; Additional color themes folder
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-;; Zenburn color theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/zenburn/")
-;; Solarized color theme
-(add-to-list 'load-path "~/.emacs.d/themes/solarized")
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/solarized/")
+(add-subfolders-to-theme-path
+ (expand-file-name (concat user-emacs-directory "/themes")))
+
 ;; Set default desired theme
-;; (setq custom-color-theme-default 'zenburn)
 (setq custom-color-theme-default 'solarized-light)
 ;; (setq custom-color-theme-default 'moe-light)
+;; (setq custom-color-theme-default 'zenburn)
 
 ;; Manage color themes with emacs server:
 ;; Assume color theme is wanted and enabled. When making a frame check
@@ -78,10 +75,13 @@
 
 (global-set-key (kbd "C-c C-t") 'custom-color-theme-toggle)
 
-;; (add-hook 'after-make-frame-functions 'color-theme-manage-frame-creation)
-;; (add-hook 'delete-frame-functions 'color-theme-manage-frame-deletion)
-(add-hook 'after-make-frame-functions 'color-theme-activate-frame-creation)
+;; Conditional color theme
+(add-hook 'after-make-frame-functions 'color-theme-manage-frame-creation)
+(add-hook 'delete-frame-functions 'color-theme-manage-frame-deletion)
+
+;; Always enable color theme
+;; (add-hook 'after-make-frame-functions 'color-theme-activate-frame-creation)
+
 ;; If emacs is started directly, then the frame is already made, so
 ;; check for that.
-
 (color-theme-activate-frame-creation (selected-frame))

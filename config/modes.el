@@ -1,5 +1,5 @@
 ;;===============================
-;; Major modes for files
+;; Major modes associations
 ;;===============================
 
 ;; Default major-mode
@@ -40,10 +40,3 @@
 (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
-
-;;===============================
-;; Minor modes
-;;===============================
-
-;; Silly camelCase
-(add-hook 'prog-mode-hook 'subword-mode)

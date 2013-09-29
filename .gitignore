@@ -4,14 +4,13 @@ tmp/
 org/
 image-dired/
 games/
-ctags/tags/
+elpa/
 tramp
 config/private.el
 auto-complete-history
 ede-projects.el
 ac-comphist.dat
 tags
-elpa/
 *.elc
 session.*
 projectile*

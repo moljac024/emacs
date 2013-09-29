@@ -133,12 +133,6 @@ See also `newline-and-indent'."
              (set-visited-file-name newname)
              (set-buffer-modified-p nil) t))))
 
-(defun eshell/clear ()
-  "04Dec2001 - sailor, to clear the eshell buffer."
-  (interactive)
-  (let ((inhibit-read-only t))
-    (erase-buffer)))
-
 (defun mo-toggle-identifier-naming-style ()
   "Toggles the symbol at point between C-style naming,
 e.g. `hello_world_string', and camel case,

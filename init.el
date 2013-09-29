@@ -1,47 +1,41 @@
 ;; ==============================
-;; Find configuration files
+;; Bootstrap configuration
 ;; ==============================
 
-(defvar emacs-config-dir
-  (expand-file-name (concat user-emacs-directory "/config")))
-
-(defun load-config (config)
-  (load (expand-file-name config emacs-config-dir)))
+(load (expand-file-name "core.el" (concat user-emacs-directory "/config")))
 
 ;; ==============================
-;; Load configuration files
+;; Load needed packages
+;; ==============================
+
+(load-config "packages")
+
+;; ==============================
+;; Main configuration files
 ;; ==============================
 
 (load-config "core")
+(load-config "ui")
 (load-config "general")
+(load-config "keybinds")
+(load-config "iron-keys")
+(load-config "files")
+(load-config "dired")
 (load-config "modes")
 (load-config "buffers")
-(load-config "dired")
 (load-config "images")
 (load-config "irc")
-(load-config "files")
-(load-config "util")
 (load-config "tabs")
 (load-config "sql")
-(load-config "keybinds")
-(load-config "packages")
 (load-config "themes")
-(load-config "customize")
-(load-config "addons")
-
-;; ==============================
-;; Customize
-;; ==============================
-
-(setq custom-file
-      (expand-file-name "customize.el" emacs-config-dir))
-(load custom-file 'noerror)
-
-;; ==============================
-;; Private settings
-;; ==============================
-
-(load (expand-file-name "private.el" emacs-config-dir) 'noerror)
+(load-config "util")
+(load-config "flycheck")
+(load-config "navigation")
+(load-config "programming")
+(load-config "lisp")
+(load-config "haskell")
+(load-config "php")
+(load-config "evil")
 
 ;; ==============================
 ;; Open frequent files and directories
@@ -53,7 +47,7 @@
 (find-file-if-exists "~/")
 
 ;; ==============================
-;; Vendor packages
+;; Vendor packages, not part of repository
 ;; ==============================
 
 (add-subfolders-to-load-path "~/.emacs.d/vendor")

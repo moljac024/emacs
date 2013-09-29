@@ -4,6 +4,7 @@
 
 (require 'image-mode)
 (require 'cl)
+
 (define-key image-mode-map "n" 'next-image-kill-current)
 (define-key image-mode-map "p" 'previous-image-kill-current)
 (define-key image-mode-map "w" 'set-as-wallpaper)

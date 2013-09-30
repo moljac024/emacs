@@ -2,6 +2,9 @@
 ;; Evil mode
 ;; ==============================
 
+;; How long to wait for chord
+(setq key-chord-two-keys-delay 0.5)
+
 ;; Key chord
 (key-chord-mode 1)
 

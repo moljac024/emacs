@@ -6,7 +6,7 @@
     auto-complete        ;; Auto completion
     ac-dabbrev           ;; Auto complete backend for dabbrev
     ace-jump-mode        ;; Faster navigation (like vim )
-    autopair             ;; Automatically close pairs like brackets quotes etc.
+    smartparens          ;; Auto close pairs like parenthesis, quotes etc.
     bash-completion      ;; Bash completion for the shell buffer
     clojure-mode         ;; Major mode for clojure
     coffee-mode          ;; Major mode for coffee
@@ -44,7 +44,7 @@
     yaml-mode            ;; Major mode for YAML
     virtualenv           ;; Minor mode for python virtual environemnts
     smex                 ;; Better M-x
-    ;; yasnippet         ;; Snippets
+    yasnippet            ;; Code snippets
     solarized-theme      ;; Solarized theme
     zenburn-theme        ;; Zenburn theme
     moe-theme            ;; Moe-theme

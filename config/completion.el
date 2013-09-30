@@ -1,5 +1,5 @@
 ;;===============================
-;; Tabs and smart-tabs
+;; Auto completion
 ;;===============================
 
 (require 'cc-mode)
@@ -57,3 +57,7 @@
 ;; (add-hook 'ruby-mode-hook 'tab-noconflict)
 ;; (add-hook 'markdown-mode-hook 'tab-noconflict)
 ;; (add-hook 'org-mode-hook 'tab-noconflict)
+
+;; Auto-complete
+(require 'auto-complete)
+(global-auto-complete-mode)

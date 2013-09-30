@@ -38,3 +38,6 @@
 
 ;; Write y-or-n instead of yes-or-no
 (fset 'yes-or-no-p 'y-or-n-p)
+
+;; Undo tree
+(global-undo-tree-mode 1)

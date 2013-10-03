@@ -14,7 +14,7 @@
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 ;; Automatically install missing packages
-(load-config "dependencies")
+(load-config "package-dependencies")
 
 (defun needed-packages-installed-p ()
   (loop for p in needed-packages

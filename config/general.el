@@ -3,7 +3,7 @@
 ;;===============================
 
 ;; Backtrace when a problem occurs
-(setq debug-on-error t)
+;; (setq debug-on-error t)
 
 ;; Scroll by single lines
 (setq-default scroll-step 1)

@@ -13,3 +13,8 @@
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c b") 'org-iswitchb)
+
+(defun open-notes-org () 
+  "Open the notes file in org-mode"
+  (interactive)
+  (find-file "~/.emacs.d/org/Notes.org"))

@@ -22,7 +22,13 @@
     (define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
     (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
     (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
-    ;; Evil keybinds - jj is escape
+
+    (define-key evil-normal-state-map (kbd "C-j") 'windmove-down)
+    (define-key evil-normal-state-map (kbd "C-k") 'windmove-up)
+    (define-key evil-normal-state-map (kbd "C-l") 'windmove-right)
+    (define-key evil-normal-state-map (kbd "C-h") 'windmove-left)
+
+    ;; Key chords
     (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
     (key-chord-define evil-visual-state-map "gc" 'comment-dwim-line)
     (key-chord-define evil-normal-state-map "gc" 'comment-dwim-line)

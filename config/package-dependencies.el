@@ -13,9 +13,6 @@
     cperl-mode            ;; Major mode for perl
     haml-mode             ;; Major mode for haml
     haskell-mode          ;; Major mode for haskell
-    helm                  ;; Incremental and narrowing framework
-    helm-projectile       ;; Helm integration with projectile
-    helm-swoop            ;; List multi lines to another buffer, e.g. search results
     projectile            ;; Manage and navigate projects
     flycheck              ;; Flymake done right - on the fly syntax checking
     jade-mode             ;; Major mode for jade templates

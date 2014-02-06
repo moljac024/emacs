@@ -56,3 +56,6 @@
 
 (add-subfolders-to-load-path "~/.emacs.d/vendor")
 (load-config "vendor")
+
+;; Enable evil mode
+(evil-mode 1)

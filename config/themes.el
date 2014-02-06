@@ -7,8 +7,8 @@
  (expand-file-name (concat user-emacs-directory "/themes")))
 
 ;; Set default desired theme
-(setq custom-color-theme-default 'solarized-light)
-;; (setq custom-color-theme-default 'moe-light)
+;; (setq custom-color-theme-default 'solarized-light)
+(setq custom-color-theme-default 'moe-light)
 ;; (setq custom-color-theme-default 'zenburn)
 
 ;; Manage color themes with emacs server:
@@ -76,11 +76,11 @@
 (global-set-key (kbd "C-c C-t") 'custom-color-theme-toggle)
 
 ;; Conditional color theme
-(add-hook 'after-make-frame-functions 'color-theme-manage-frame-creation)
-(add-hook 'delete-frame-functions 'color-theme-manage-frame-deletion)
+;; (add-hook 'after-make-frame-functions 'color-theme-manage-frame-creation)
+;; (add-hook 'delete-frame-functions 'color-theme-manage-frame-deletion)
 
 ;; Always enable color theme
-;; (add-hook 'after-make-frame-functions 'color-theme-activate-frame-creation)
+(add-hook 'after-make-frame-functions 'color-theme-activate-frame-creation)
 
 ;; If emacs is started directly, then the frame is already made, so
 ;; check for that.

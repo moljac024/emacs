@@ -41,3 +41,12 @@
 
 ;; Undo tree
 (global-undo-tree-mode 1)
+
+;; Powerline
+(require 'powerline)
+(powerline-default-theme)
+
+;; Ido vertical mode
+(require 'ido-vertical-mode)
+(ido-mode 1)
+(ido-vertical-mode 1)

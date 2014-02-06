@@ -39,6 +39,7 @@
 (load-config "haskell")
 (load-config "php")
 (load-config "evil")
+(load-config "project")
 
 ;; ==============================
 ;; Open frequent files and directories

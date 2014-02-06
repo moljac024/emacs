@@ -24,7 +24,18 @@
     (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
     ;; Evil keybinds - jj is escape
     (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
+    (key-chord-define evil-visual-state-map "gc" 'comment-dwim-line)
+    (key-chord-define evil-normal-state-map "gc" 'comment-dwim-line)
+
+    ;; Switch buffers
+    (define-key evil-normal-state-map (kbd "C-b") 'helm-buffers-list)
+    ;; Projectile find fiel
+    (define-key evil-normal-state-map (kbd "C-f") 'projectile-find-file)
 ))
 
 ;; Enable evil mode
 (evil-mode 1)
+
+;; Emacs in evil insert mode
+(setq evil-insert-state-map (make-sparse-keymap))
+(define-key evil-insert-state-map (kbd "<escape>") 'evil-normal-state)

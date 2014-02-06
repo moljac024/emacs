@@ -75,3 +75,9 @@
 (global-set-key (kbd "M-`") 'jump-to-mark)
 
 (global-set-key (kbd "<f1>") 'eshell)
+
+;; Use vim keys for walking ido matches
+(defun ido-evil-keys ()
+  (define-key ido-completion-map (kbd "C-j") 'ido-next-match)
+  (define-key ido-completion-map (kbd "C-k") 'ido-prev-match))
+(add-hook 'ido-setup-hook 'ido-evil-keys)

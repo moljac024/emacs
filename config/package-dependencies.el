@@ -27,7 +27,7 @@
     inf-ruby              ;; Ruby inferior repl
     magit                 ;; Awesome git interface
     markdown-mode         ;; Major mode for markdown
-    nrepl                 ;; REPL for clojure
+    cider                 ;; REPL for clojure
     openwith              ;; Dired open with external app
     org                   ;; Most awesome emacs app
     php-mode              ;; Major mode for php

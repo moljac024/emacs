@@ -53,10 +53,6 @@
     (define-key iron-keys-mode-map (kbd "M-0") 'delete-window)
     (define-key iron-keys-mode-map (kbd "M-o") 'other-window)
     (define-key iron-keys-mode-map (kbd "M-k") 'my-server-kill-this-buffer)
-    (define-key iron-keys-mode-map (kbd "M-<left>") 'windmove-left)
-    (define-key iron-keys-mode-map (kbd "M-<right>") 'windmove-right)
-    (define-key iron-keys-mode-map (kbd "M-<up>") 'windmove-up)
-    (define-key iron-keys-mode-map (kbd "M-<down>") 'windmove-down)
 ))
 
 ;; Who moves by word anyway? Rebind these to more useful commands:

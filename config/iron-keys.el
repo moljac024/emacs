@@ -3,17 +3,17 @@
 ;; ==============================
 
 ;; Remove M-number bindings (default is universal argument)
-(global-unset-key (kbd "M-1"))
-(global-unset-key (kbd "M-2"))
-(global-unset-key (kbd "M-3"))
-(global-unset-key (kbd "M-4"))
-(global-unset-key (kbd "M-5"))
-(global-unset-key (kbd "M-6"))
-(global-unset-key (kbd "M-7"))
-(global-unset-key (kbd "M-8"))
-(global-unset-key (kbd "M-9"))
-(global-unset-key (kbd "M-0"))
-(global-unset-key (kbd "M-o"))
+;; (global-unset-key (kbd "M-1"))
+;; (global-unset-key (kbd "M-2"))
+;; (global-unset-key (kbd "M-3"))
+;; (global-unset-key (kbd "M-4"))
+;; (global-unset-key (kbd "M-5"))
+;; (global-unset-key (kbd "M-6"))
+;; (global-unset-key (kbd "M-7"))
+;; (global-unset-key (kbd "M-8"))
+;; (global-unset-key (kbd "M-9"))
+;; (global-unset-key (kbd "M-0"))
+;; (global-unset-key (kbd "M-o"))
 
 ;; ==============================
 ;; Iron keys

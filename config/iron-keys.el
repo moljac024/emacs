@@ -52,6 +52,7 @@
     (define-key iron-keys-mode-map (kbd "M-4") 'delete-window)
     (define-key iron-keys-mode-map (kbd "M-0") 'delete-window)
     (define-key iron-keys-mode-map (kbd "M-o") 'other-window)
+    (define-key iron-keys-mode-map (kbd "C-c w") 'toggle-truncate-lines)
     (define-key iron-keys-mode-map (kbd "M-k") 'my-server-kill-this-buffer)
 ))
 

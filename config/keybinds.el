@@ -50,8 +50,6 @@
 (global-set-key (kbd "<f2>") 'smex)
 (global-set-key (kbd "<f8>") 'recompile)
 (global-set-key (kbd "<f9>") 'run-current-file)
-;; Toggle whitespace mode
-(global-set-key (kbd "C-c w") 'whitespace-mode)
 ;; Run current file
 (global-set-key (kbd "C-c r") 'run-current-file)
 ;; Indent line according to previous one with M-RET

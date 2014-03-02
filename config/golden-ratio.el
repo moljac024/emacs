@@ -1,13 +1,11 @@
-;; Advise windmove functions to be aware of golden ratio
-(defadvice windmove-left (after windmove-left-golden activate)
-  (golden-ratio))
-(defadvice windmove-right (after windmove-right-golden activate)
-  (golden-ratio))
-(defadvice windmove-up (after windmove-up-golden activate)
-  (golden-ratio))
-(defadvice windmove-down (after windmove-down-golden activate)
+;; ==============================
+;; Golden ratio - automatic resizing of windows
+;; ==============================
+
+(defadvice other-window (after other-window-golden activate)
   (golden-ratio))
 
-;; Activate golden ratio
+(require-package 'golden-ratio)
 (require 'golden-ratio)
-(golden-ratio-mode 1)
+
+(golden-ratio-mode t)

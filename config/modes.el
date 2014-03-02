@@ -12,13 +12,6 @@
 ;; Config mode
 (add-to-list 'auto-mode-alist '("\\.git" . conf-unix-mode))
 
-;; Emacs comes with two built-in javascript modes:
-;; javascript-mode - which is outdated, and
-;; js-mode - which is what we will use
-(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
-(add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
-(add-to-list 'auto-mode-alist '("composer.lock" . js-mode))
-
 ;; Open html template files in html mode
 (add-to-list 'auto-mode-alist '("\\.html.php$" . html-mode))
 ;; Mako templating engine for python

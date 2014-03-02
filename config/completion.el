@@ -1,5 +1,5 @@
 ;;===============================
-;; Auto completion
+;; Built-in auto completion
 ;;===============================
 
 (require 'cc-mode)
@@ -48,16 +48,3 @@
         try-expand-dabbrev-all-buffers
         try-expand-dabbrev-from-kill
         try-complete-lisp-symbol))
-
-;; (defun tab-noconflict ()
-;;   (let ((command (key-binding [tab]))) ; remember command
-;;     (local-unset-key [tab]) ; unset from (kbd "<tab>")
-;;     (local-set-key (kbd "TAB") command))) ; bind to (kbd "TAB")
-;; ;; Fix offending modes
-;; (add-hook 'ruby-mode-hook 'tab-noconflict)
-;; (add-hook 'markdown-mode-hook 'tab-noconflict)
-;; (add-hook 'org-mode-hook 'tab-noconflict)
-
-;; Auto-complete
-(require 'auto-complete)
-(global-auto-complete-mode)

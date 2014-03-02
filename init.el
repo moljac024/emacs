@@ -5,7 +5,7 @@
 (load (expand-file-name "core" (expand-file-name "config" user-emacs-directory)))
 
 ;; ==============================
-;; Load needed packages
+;; Package configuration
 ;; ==============================
 
 (load-config "packages")
@@ -17,6 +17,7 @@
 (load-config "ui")
 (load-config "themes")
 (load-config "general")
+(load-config "ido")
 (load-config "keybinds")
 (load-config "iron-keys")
 (load-config "files")
@@ -29,17 +30,32 @@
 (load-config "irc")
 (load-config "sql")
 (load-config "util")
-(load-config "flycheck")
-(load-config "navigation")
 (load-config "programming")
 (load-config "completion")
-(load-config "snippets")
+
+;; ==============================
+;; Language specific configuration
+;; ==============================
+
 (load-config "css")
 (load-config "lisp")
 (load-config "haskell")
 (load-config "php")
-(load-config "evil")
+(load-config "javascript")
+
+;; ==============================
+;; Extra packages
+;; ==============================
+
+(load-config "modeline")
+(load-config "smex")
+(load-config "auto-complete")
+(load-config "snippets")
+(load-config "navigation")
+(load-config "flycheck")
 (load-config "project")
+(load-config "magit")
+(load-config "evil")
 
 ;; ==============================
 ;; Open frequent files and directories
@@ -51,11 +67,6 @@
 (find-file-if-exists "~/")
 
 ;; ==============================
-;; Vendor packages, not part of repository
+;; Enable Evil mode
 ;; ==============================
-
-(add-subfolders-to-load-path "~/.emacs.d/vendor")
-(load-config "vendor")
-
-;; Enable evil mode
-(evil-mode 1)
+(evil-mode t)

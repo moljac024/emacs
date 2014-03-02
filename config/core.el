@@ -2,33 +2,10 @@
 ;; Find configuration files
 ;; ==============================
 
-(defvar emacs-config-dir
-  (expand-file-name (concat user-emacs-directory "/config")))
-
 (defun load-config (config)
-    (load (expand-file-name config emacs-config-dir)))
-
-;; TODO: Remove this duplicate code and combine these two functions
-(defun add-subfolders-to-load-path (parent-dir)
- "Add all level PARENT-DIR subdirs to the `load-path'."
- (dolist (f (directory-files parent-dir))
-   (let ((name (expand-file-name f parent-dir)))
-     (when (and (file-directory-p name)
-                (not (equal f ".."))
-                (not (equal f ".")))
-       (add-to-list 'load-path name)
-       (add-subfolders-to-load-path name)))))
-
-;; TODO: Add check if folder exists
-(defun add-subfolders-to-theme-path (parent-dir)
- "Add all level PARENT-DIR subdirs to the `theme-path'."
- (dolist (f (directory-files parent-dir))
-   (let ((name (expand-file-name f parent-dir)))
-     (when (and (file-directory-p name)
-                (not (equal f ".."))
-                (not (equal f ".")))
-       (add-to-list 'custom-theme-load-path name)
-       (add-subfolders-to-theme-path name)))))
+  "Load configuration file"
+  (let ((file-name (expand-file-name config (concat user-emacs-directory "/config"))))
+      (load file-name)))
 
 (defun find-file-if-exists (file)
   "Open file if it exists."
@@ -39,12 +16,25 @@
 ;; Customize
 ;; ==============================
 
-(setq custom-file
-      (expand-file-name "customize.el" emacs-config-dir))
-(load custom-file 'noerror)
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+
+(when (file-exists-p custom-file)
+    (load custom-file))
 
 ;; ==============================
-;; Private settings
+;; Load path
 ;; ==============================
 
-(load (expand-file-name "private.el" emacs-config-dir) 'noerror)
+(defun add-subdirs-to-list (parent-dir target-list)
+  "Add all level PARENT-DIR subdirs to a list'."
+  (dolist (f (directory-files parent-dir))
+    (let ((name (expand-file-name f parent-dir)))
+      (when (and (file-directory-p name)
+                 (not (equal f ".."))
+                 (not (equal f ".")))
+        (add-to-list target-list name)
+        (add-subdirs-to-list name target-list)))))
+
+;; Add directories to load path
+(add-subdirs-to-list
+ (expand-file-name "elisp" user-emacs-directory) 'load-path)

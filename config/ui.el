@@ -38,15 +38,3 @@
 
 ;; Write y-or-n instead of yes-or-no
 (fset 'yes-or-no-p 'y-or-n-p)
-
-;; Undo tree
-(global-undo-tree-mode 1)
-
-;; Powerline
-(require 'powerline)
-(powerline-default-theme)
-
-;; Ido vertical mode
-(require 'ido-vertical-mode)
-(ido-mode 1)
-(ido-vertical-mode 1)

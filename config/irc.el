@@ -17,6 +17,3 @@
 ;; rcirc - server and channel join list
 (setq rcirc-server-alist '(("irc.freenode.net" :nick rcirc-default-nick
                             :channels ("#emacs" "#lugons"))))
-
-;; (add-to-list 'rcirc-server-alist '("irc.quakenet.org" :nick "moljac024" :channels
-;;                                     ("#nk-inc" )))

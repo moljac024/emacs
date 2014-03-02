@@ -2,6 +2,10 @@
 ;; Evil mode
 ;; ==============================
 
+(require-package 'evil)
+(require-package 'surround)
+(require-package 'evil-matchit)
+
 ;; How long to wait for chord
 (setq key-chord-two-keys-delay 0.5)
 
@@ -23,11 +27,6 @@
     (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
     (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
 
-    (define-key evil-normal-state-map (kbd "C-j") 'windmove-down)
-    (define-key evil-normal-state-map (kbd "C-k") 'windmove-up)
-    (define-key evil-normal-state-map (kbd "C-l") 'windmove-right)
-    (define-key evil-normal-state-map (kbd "C-h") 'windmove-left)
-
     ;; Key chords
     (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
     (key-chord-define evil-visual-state-map "gc" 'comment-dwim-line)
@@ -37,3 +36,9 @@
 ;; Emacs in evil insert mode
 (setq evil-insert-state-map (make-sparse-keymap))
 (define-key evil-insert-state-map (kbd "<escape>") 'evil-normal-state)
+
+;; Use vim keys for walking ido matches
+(defun ido-evil-keys ()
+  (define-key ido-completion-map (kbd "C-j") 'ido-next-match)
+  (define-key ido-completion-map (kbd "C-k") 'ido-prev-match))
+(add-hook 'ido-setup-hook 'ido-evil-keys)

@@ -31,21 +31,5 @@
                                           'split-window-horizontally
                                         'split-window-vertically))
 
-;; Interactively do things
-;; (require 'ido)
-;; (ido-mode t)
-;; Ido fuzzy matching
-;; (setq ido-enable-flex-matching t)
-;; (setq ido-enable-tramp-completion t)
-;; (setq ido-enable-last-directory-history nil)
-;; (setq ido-confirm-unique-completion nil)
-;; (setq ido-show-dot-for-dired t)
-
-;; Flx-ido - better fuzzy matching
-(require 'flx-ido)
-(ido-mode t)
-(ido-everywhere t)
-(flx-ido-mode t)
-;; disable ido faces to see flx highlights.
-(setq ido-use-faces nil)
-
+;; Don't create locking files
+(setq create-lockfiles nil)

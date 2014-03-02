@@ -6,7 +6,6 @@
     auto-complete         ;; Auto completion
     ac-dabbrev            ;; Auto complete backend for dabbrev
     ace-jump-mode         ;; Faster navigation (like vim )
-    smartparens           ;; Auto close pairs like parenthesis, quotes etc.
     bash-completion       ;; Bash completion for the shell buffer
     clojure-mode          ;; Major mode for clojure
     coffee-mode           ;; Major mode for coffee
@@ -18,13 +17,14 @@
     jade-mode             ;; Major mode for jade templates
     js2-mode              ;; Major mode for Javascript
     jinja2-mode           ;; Major mode for jinja templates
-    epc                   ;; RPC stack for elisp
     evil                  ;; Vim emulation
     surround              ;; Vim surround plugin
-    jedi                  ;; Autocomplete
+    jedi                  ;; Python code completion
     key-chord             ;; Key chords
     lua-mode              ;; Major mode for lua
     inf-ruby              ;; Ruby inferior repl
+    helm                  ;; Helm
+    helm-git-grep         ;; Incremental git grep from helm
     magit                 ;; Awesome git interface
     markdown-mode         ;; Major mode for markdown
     cider                 ;; REPL for clojure
@@ -34,7 +34,6 @@
     rainbow-mode          ;; Css pretty colors
     rainbow-delimiters    ;; Color parenthesis
     ruby-mode             ;; Major mode for ruby
-    rvm                   ;; Ruby version manager
     scala-mode2           ;; Major mode for scala
     slime                 ;; LISP development
     undo-tree             ;; Linear undo
@@ -43,12 +42,30 @@
     virtualenv            ;; Minor mode for python virtual environemnts
     smex                  ;; Better M-x
     yasnippet             ;; Code snippets
-    color-theme-solarized ;; Official solarized theme package
     solarized-theme       ;; Solarized theme
     zenburn-theme         ;; Zenburn theme
     moe-theme             ;; Moe-theme
-    powerline             ;; Pretty modeline
     flx-ido               ;; Better fuzzy matching for ido
+    ido-ubiquitous        ;; Use ido everywhere
     ido-vertical-mode     ;; Vertical layout for ido
     golden-ratio          ;; Automatically resize windows
 ) "A list of packages to ensure are installed at launch.")
+
+
+(defun needed-packages-installed-p ()
+  "If all needed packages installed"
+  (loop for p in needed-packages
+        when (not (package-installed-p p)) do (return nil)
+        finally (return t)))
+
+(unless (needed-packages-installed-p)
+  ;; Check for new packages (package versions)
+  (message "%s" "Emacs is now refreshing its package database...")
+  (package-refresh-contents)
+  (message "%s" " done.")
+  ;; Install the missing packages
+  (message "%s" "Emacs is now installing missing packages...")
+  (dolist (p needed-packages)
+    (when (not (package-installed-p p))
+      (package-install p))))
+  (message "%s" " done.")

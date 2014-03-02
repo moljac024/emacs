@@ -10,22 +10,29 @@
 
 ;; TRAMP - set default method (can be su, sudo, ssh...)
 (setq tramp-default-method "sudo")
- 
+
 ;; Version control for files
 (setq version-control 'never)
+
 ;; Backup by copying instead of clobbering symlinks
 (setq backup-by-copying t)
+
 ;; Number of versions to keep
 (setq kept-new-versions 2)
 (setq kept-old-versions 0)
+
 ;; Silently delete old versions of backups without nagging
 (setq delete-old-versions t)
+
 ;; Save all backup files in this directory.
 (setq backup-directory-alist `(("." . "~/.emacs.d/backup/")))
+
 ;; No backup files
 (setq backup-inhibited t)
+
 ;; No auto-save files
 (setq auto-save-default nil)
+
 ;; No session restore files
 (setq auto-save-list-file-prefix nil)
 

@@ -2,13 +2,19 @@
 ;; Color themes
 ;;===============================
 
+(require 'cl)
+
+(require-package 'solarized-theme)
+(require-package 'zenburn-theme)
+(require-package 'moe-theme)
+
 ;; Additional color themes folder
-(add-subfolders-to-theme-path
- (expand-file-name (concat user-emacs-directory "/themes")))
+(add-subdirs-to-list
+ (expand-file-name "themes" user-emacs-directory) 'custom-theme-load-path)
 
 ;; Set default desired theme
 ;; (setq custom-color-theme-default 'solarized-light)
-(setq custom-color-theme-default 'moe-light)
+(setq custom-color-theme-default 'moe-dark)
 ;; (setq custom-color-theme-default 'zenburn)
 
 ;; Manage color themes with emacs server:

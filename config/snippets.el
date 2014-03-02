@@ -2,5 +2,8 @@
 ;; Snippets
 ;; ==============================
 
-;; YASnippet
-;; (yas-global-mode 1)
+(require-package 'yasnippet)
+;; Enable yasnippet in programming modes
+(add-hook 'prog-mode-hook
+          '(lambda ()
+             (yas-minor-mode)))

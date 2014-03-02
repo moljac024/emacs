@@ -42,12 +42,12 @@
 ;; (global-set-key (kbd "RET") 'reindent-then-newline-and-indent)
 (global-set-key [(shift return)] 'insert-empty-line)
 ;; Buffer-menu instead of list-buffers:
-;; (global-set-key (kbd "C-x C-b") 'buffer-menu)
+(global-set-key (kbd "C-x C-b") 'buffer-menu)
 ;; Ibuffer instead of list-buffers:
-(global-set-key (kbd "C-x C-b") 'ibuffer)
+;; (global-set-key (kbd "C-x C-b") 'ibuffer)
+;; (global-set-key (kbd "C-x b") 'helm-buffers-list)
 ;; Function keys (F5-F9 unbound by default)
-;; (global-set-key (kbd "<f2>") 'execute-extended-command)
-(global-set-key (kbd "<f2>") 'smex)
+(global-set-key (kbd "<f2>") 'execute-extended-command)
 (global-set-key (kbd "<f8>") 'recompile)
 (global-set-key (kbd "<f9>") 'run-current-file)
 ;; Run current file
@@ -72,10 +72,4 @@
 (global-set-key (kbd "C-`") 'push-mark-no-activate)
 (global-set-key (kbd "M-`") 'jump-to-mark)
 
-(global-set-key (kbd "<f1>") 'eshell)
-
-;; Use vim keys for walking ido matches
-(defun ido-evil-keys ()
-  (define-key ido-completion-map (kbd "C-j") 'ido-next-match)
-  (define-key ido-completion-map (kbd "C-k") 'ido-prev-match))
-(add-hook 'ido-setup-hook 'ido-evil-keys)
+(global-set-key (kbd "C-c e") 'eshell)

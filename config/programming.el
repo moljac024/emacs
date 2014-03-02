@@ -2,20 +2,8 @@
 ;; Programming
 ;; ==============================
 
-;; Highlith long lines
-(require 'whitespace)
-(setq whitespace-line-column 80) ;; limit line length
-(setq whitespace-style '(face lines-tail))
-(add-hook 'prog-mode-hook 'whitespace-mode)
-
 ;; Silly camelCase
 (add-hook 'prog-mode-hook 'subword-mode)
-
-;; Color parenthesis
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-
-;; Magit
-(global-set-key (kbd "C-c g") 'magit-status)
 
 ;; ==============================
 ;; Indentation, whitespace and indenting
@@ -45,3 +33,7 @@
 
 ;; Sane commenting style
 (setq comment-style 'indent)
+
+;; Color parenthesis
+(require-package 'rainbow-delimiters)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)

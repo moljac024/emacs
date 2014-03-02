@@ -17,25 +17,14 @@
 (setq dired-recursive-copies 'always) ;; Always means no asking
 (setq dired-recursive-deletes 'top)   ;; Top means ask once for top dir only
 
-;; Mark hidden files as uninteresting
+;; Don't show hidden files
 (setq dired-omit-files "^[.][^.].*$")
 
-;; Silently omit files
+;; Don't display notification about ommiting some files
 (setq dired-omit-verbose nil)
 
-;; No confirmation on file delete - clever hack
+;; No confirmation on file delete
 (setq dired-deletion-confirmer '(lambda (x) t))
-
-(defun my-dired-omit ()
-  (let ((dired-omit-dirs '( "~/" (expand-file-name "~/"))))
-    (if (member dired-directory dired-omit-dirs)
-        (dired-omit-mode 1))))
-
-;; Don't show hidden files and refresh directory on change
-(add-hook 'dired-mode-hook (lambda ()
-                             (setq truncate-lines t)
-                             (auto-revert-mode)
-                             (my-dired-omit)))
 
 ;; Uncompress .zip files with "Z" too
 (eval-after-load "dired-aux"
@@ -44,7 +33,7 @@
 
 ;; Orthodox file manager keybinds (mc/total commander)
 (add-hook 'dired-load-hook
-  (lambda (&rest ignore)
+  (lambda ()
     (define-key dired-mode-map
       (kbd "RET") 'dired-find-file-or-launch-command)
     (define-key dired-mode-map
@@ -69,7 +58,7 @@
 
 ;; Editable dired keybinds
 (add-hook 'wdired-mode-hook
-  (lambda (&rest ignore)
+  (lambda ()
     (define-key wdired-mode-map
       (kbd "RET") 'wdired-finish-edit) ;; End renames and save changes
     (define-key wdired-mode-map
@@ -97,6 +86,17 @@
      (windows-nt "cmd /c start"))
    nil
    (dired-get-marked-files t current-prefix-arg)))
+
+(defun my-dired-omit ()
+  (let ((dired-omit-dirs '( "~/" (expand-file-name "~/"))))
+    (if (member dired-directory dired-omit-dirs)
+        (dired-omit-mode 1))))
+
+;; Don't show hidden files and refresh directory on change
+(add-hook 'dired-mode-hook (lambda ()
+                             (setq truncate-lines t)
+                             (auto-revert-mode)
+                             (my-dired-omit)))
 
 ;; Dired-x
 (add-hook 'dired-load-hook '(lambda () (require 'dired-x)))

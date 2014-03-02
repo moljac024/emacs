@@ -2,8 +2,11 @@
 ;; Org-mode
 ;; ==============================
 
+;; Install newest org-mode package
+(require-package 'org)
+
 ;; Files for org-mode (Notes and Activities)
-(setq org-agenda-files (list "~/.emacs.d/org/"))
+(setq org-agenda-files (list (expand-file-name "org/" user-emacs-directory)))
 
 ;; Log TODO changes with timestamp
 (setq org-log-done t)
@@ -14,7 +17,7 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c b") 'org-iswitchb)
 
-(defun open-notes-org () 
+(defun open-notes-org ()
   "Open the notes file in org-mode"
   (interactive)
-  (find-file "~/.emacs.d/org/Notes.org"))
+  (find-file (expand-file-name "org/Notes.org" user-emacs-directory)))

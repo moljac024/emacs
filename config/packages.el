@@ -2,33 +2,25 @@
 ;; Package management
 ;;===============================
 
-(require 'cl)
-
 ;; Initialize package management
 (package-initialize)
 
 ;; Add additional package archives
-(add-to-list 'package-archives
-             '("ELPA" . "http://tromey.com/elpa/"))
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("ELPA" . "http://tromey.com/elpa/") t)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
-;; Automatically install missing packages
-(load-config "package-dependencies")
+(defun require-package (package &optional min-version no-refresh)
+  "Install given PACKAGE, optionally requiring MIN-VERSION.
+If NO-REFRESH is non-nil, the available package lists will not be
+re-downloaded in order to locate PACKAGE."
+  (if (package-installed-p package min-version)
+      t
+    (if (or (assoc package package-archive-contents) no-refresh)
+        (package-install package)
+      (progn
+        (package-refresh-contents)
+        (require-package package min-version t)))))
 
-(defun needed-packages-installed-p ()
-  (loop for p in needed-packages
-        when (not (package-installed-p p)) do (return nil)
-        finally (return t)))
-
-(unless (needed-packages-installed-p)
-  ;; Check for new packages (package versions)
-  (message "%s" "Emacs is now refreshing its package database...")
-  (package-refresh-contents)
-  (message "%s" " done.")
-  ;; Install the missing packages
-  (message "%s" "Emacs is now installing missing packages...")
-  (dolist (p needed-packages)
-    (when (not (package-installed-p p))
-      (package-install p))))
-  (message "%s" " done.")
+(require-package 'use-package)
+(require 'use-package)

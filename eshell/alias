@@ -1,3 +1,4 @@
+alias back cd $OLDPWD
 alias emacs find-file $1
 alias vim find-file $1
-alias back cd $OLDPWD
+alias vi find-file $1

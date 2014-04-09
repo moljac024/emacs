@@ -42,6 +42,7 @@
 (load-config "haskell")
 (load-config "php")
 (load-config "javascript")
+(load-config "python")
 
 ;; ==============================
 ;; Extra packages

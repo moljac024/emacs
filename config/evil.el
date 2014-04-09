@@ -3,7 +3,6 @@
 ;; ==============================
 
 (require-package 'evil)
-(require-package 'surround)
 (require-package 'evil-matchit)
 
 ;; How long to wait for chord
@@ -42,3 +41,8 @@
   (define-key ido-completion-map (kbd "C-j") 'ido-next-match)
   (define-key ido-completion-map (kbd "C-k") 'ido-prev-match))
 (add-hook 'ido-setup-hook 'ido-evil-keys)
+
+;; Emulate surround.vim
+(require-package 'surround)
+(require 'surround)
+(global-surround-mode 1)

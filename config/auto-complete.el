@@ -2,8 +2,10 @@
 ;; Auto complete mode
 ;;===============================
 
-(require-package 'auto-complete)
-(require 'auto-complete)
+(require-package 'company)
 
-;; Activate in programming modes
-(add-hook 'prog-mode-hook 'auto-complete-mode)
+;; Activate globally
+(add-hook 'after-init-hook 'global-company-mode)
+
+;; No delay, show completion immediately
+(setq company-idle-delay t)

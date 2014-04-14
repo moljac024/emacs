@@ -1,0 +1,2 @@
+* TODO Flatten all configuration files into single file
+* TODO Impletement init as org mode literate programming

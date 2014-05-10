@@ -46,3 +46,6 @@
 (require-package 'surround)
 (require 'surround)
 (global-surround-mode 1)
+
+(require-package 'evil-god-state)
+(evil-define-key 'normal global-map "," 'evil-execute-in-god-state)

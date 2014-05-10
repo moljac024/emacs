@@ -57,6 +57,8 @@
 (load-config "project")
 (load-config "magit")
 (load-config "evil")
+(load-config "golden-ratio")
+
 
 ;; ==============================
 ;; Open frequent files and directories

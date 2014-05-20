@@ -56,9 +56,8 @@
 (load-config "flycheck")
 (load-config "project")
 (load-config "magit")
-(load-config "evil")
-(load-config "golden-ratio")
-
+;; (load-config "evil")
+;; (load-config "golden-ratio")
 
 ;; ==============================
 ;; Open frequent files and directories
@@ -72,4 +71,4 @@
 ;; ==============================
 ;; Enable Evil mode
 ;; ==============================
-(evil-mode t)
+;; (evil-mode t)

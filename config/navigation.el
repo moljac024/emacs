@@ -4,7 +4,6 @@
 
 (require-package 'helm)
 (global-set-key (kbd "C-c h") 'helm-mini)
-(define-key iron-keys-mode-map (kbd "M-h") 'helm-mini)
 
 ;; ==============================
 ;; Ace jump mode - jump accross buffer
@@ -14,9 +13,18 @@
 (require-package 'ace-window)
 (require-package 'ace-jump-buffer)
 
-(define-key iron-keys-mode-map (kbd "M-s") 'ace-jump-mode)
-(define-key iron-keys-mode-map (kbd "C-x C-o") 'ace-window)
-(define-key iron-keys-mode-map (kbd "C-x C-b") 'ace-jump-buffer)
+(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
+
+(defun ace-window-dwim (arg)
+  "Activate ace-window if more than 2 windows are present on
+screen, otherwise call other-window."
+  (interactive "p")
+  (if (> (length (window-list)) 2)
+      (ace-window arg)
+    (other-window arg)))
+
+(define-key global-map
+  [remap other-window] 'ace-window-dwim)
 
 (add-hook 'evil-mode-hook
   (lambda ()

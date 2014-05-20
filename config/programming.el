@@ -37,3 +37,6 @@
 ;; Color parenthesis
 (require-package 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
+(require-package 'whole-line-or-region)
+(whole-line-or-region-mode t)

@@ -15,6 +15,7 @@
 ;; ==============================
 
 (load-config "ui")
+(load-config "undo")
 (load-config "themes")
 (load-config "general")
 (load-config "ido")

@@ -48,16 +48,10 @@
 ;; (global-set-key (kbd "C-x b") 'helm-buffers-list)
 ;; Function keys (F5-F9 unbound by default)
 (global-set-key (kbd "<f2>") 'execute-extended-command)
-(global-set-key (kbd "<f8>") 'recompile)
-(global-set-key (kbd "<f9>") 'run-current-file)
 ;; Run current file
-(global-set-key (kbd "C-c r") 'run-current-file)
+(global-set-key (kbd "<f9>") 'run-current-file)
 ;; Indent line according to previous one with M-RET
 (global-set-key (kbd "<M-RET>") 'indent-new-comment-line)
-;; Enter hex edit mode with C-c C-h
-(global-set-key (kbd "C-c C-h") 'hexl-mode)
-;; Open a shell
-(global-set-key (kbd "C-c s") 'eshell)
 ;; Open notes
 (global-set-key (kbd "C-c n") 'open-notes-org)
 ;; Open a bash terminal
@@ -72,4 +66,6 @@
 (global-set-key (kbd "C-`") 'push-mark-no-activate)
 (global-set-key (kbd "M-`") 'jump-to-mark)
 
+;; Open eshell
 (global-set-key (kbd "C-c e") 'eshell)
+(global-set-key (kbd "C-c s") 'eshell)

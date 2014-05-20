@@ -9,13 +9,8 @@
 (add-to-list 'auto-mode-alist '("\\.config/openbox/autostart$" . sh-mode))
 (add-to-list 'auto-mode-alist '("\\.bash.mine$" . sh-mode))
 
-;; Config mode
-(add-to-list 'auto-mode-alist '("\\.git" . conf-unix-mode))
-
 ;; Open html template files in html mode
 (add-to-list 'auto-mode-alist '("\\.html.php$" . html-mode))
-;; Mako templating engine for python
-(add-to-list 'auto-mode-alist '("\\.mak" . html-mode))
 
 ;; Less files, open them in css-mode, it's good enough
 (add-to-list 'auto-mode-alist '("\\.less$" . css-mode))
@@ -33,3 +28,6 @@
 (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
+
+(require-package 'less-css-mode)
+(require-package 'web-mode)

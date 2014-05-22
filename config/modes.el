@@ -12,9 +12,6 @@
 ;; Open html template files in html mode
 (add-to-list 'auto-mode-alist '("\\.html.php$" . html-mode))
 
-;; Less files, open them in css-mode, it's good enough
-(add-to-list 'auto-mode-alist '("\\.less$" . css-mode))
-
 ;; Use cperl-mode instead of the default perl-mode
 (add-to-list 'auto-mode-alist '("\\.\\([pP][Llm]\\|al\\)\\'" . cperl-mode))
 (add-to-list 'interpreter-mode-alist '("perl" . cperl-mode))
@@ -30,4 +27,6 @@
 (add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
 
 (require-package 'less-css-mode)
+
 (require-package 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.mak$" . web-mode))

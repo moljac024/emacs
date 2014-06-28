@@ -47,7 +47,7 @@
 ;; Extra packages
 ;; ==============================
 
-(load-config "modeline")
+;; (load-config "modeline")
 (load-config "smex")
 (load-config "auto-complete")
 (load-config "snippets")
@@ -55,7 +55,7 @@
 (load-config "flycheck")
 (load-config "project")
 (load-config "magit")
-;; (load-config "evil")
+(load-config "evil")
 ;; (load-config "golden-ratio")
 
 ;; ==============================

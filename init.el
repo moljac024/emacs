@@ -32,7 +32,6 @@
 (load-config "sql")
 (load-config "util")
 (load-config "programming")
-(load-config "completion")
 
 ;; ==============================
 ;; Language specific configuration
@@ -43,7 +42,6 @@
 (load-config "haskell")
 (load-config "php")
 (load-config "javascript")
-(load-config "python")
 
 ;; ==============================
 ;; Extra packages

@@ -14,3 +14,4 @@ tags
 *.elc
 session.*
 projectile*
+.mc-lists.el
